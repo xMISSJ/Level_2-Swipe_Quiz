@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Swipe Quiz</string>
-    <string name="instruction_text">Quiz Instruction</string>
+    <string name="instruction_text">Quiz Instructions</string>
+    <string name="instructionContent_text">Swipe left for true, swipe right for false.</string>
+    <string name="instructionContent_text2">Click on the question for the answer.</string>
+    <string name="question_1">A \'var\' and \'val\' are the same.</string>
+    <string name="question_2">Mobile Application Development grants 12 EC.</string>
+    <string name="question_3">A Unit in Kotlin corresponds to a void in Java.</string>
+    <string name="question_4">In Kotlin \'when\' replaces the \'switch\' operator in Java.</string>
 </resources>

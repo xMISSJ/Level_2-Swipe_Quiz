@@ -11,9 +11,9 @@ import kotlinx.android.synthetic.main.item_quiz.view.*
 class QuestionAdapter(private val questions: List<Question>) : RecyclerView.Adapter<QuestionAdapter.ViewHolder>() {
 
     /*
- *  For the context variable the lateinit declaration has been used to let Kotlin
- *  know that this variable will be initialized later (in the onCreateViewHolder method).
- */
+     *  For the context variable the lateinit declaration has been used to let Kotlin
+     *  know that this variable will be initialized later (in the onCreateViewHolder method).
+     */
     lateinit var context: Context
 
     // Creates and returns a ViewHolder object, inflating a standard layout called simple_list_item_1.
@@ -21,6 +21,9 @@ class QuestionAdapter(private val questions: List<Question>) : RecyclerView.Adap
         context = parent.context
         return ViewHolder(
             LayoutInflater.from(context).inflate(R.layout.item_quiz, parent, false)
+
+        // See level 2 example for what to do when not using an extra activity.
+
         )
     }
 

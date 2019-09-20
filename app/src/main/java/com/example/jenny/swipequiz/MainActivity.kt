@@ -62,14 +62,21 @@ class MainActivity : AppCompatActivity() {
 
                 // Callback triggered when a user swiped an item.
                 override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                    // If direction, then...
-                    if (direction >= 0) {
-                        // Right swipe.
-                    } else {
-                    }
+                    // Pass the direction variable to function.
+                    checkAnswer(direction)
                 }
             }
         return ItemTouchHelper(callback)
+    }
+
+    private fun checkAnswer(direction: Int) {
+        // Right swipe / Correct.
+        if (direction >= 0 ) {
+        // Left swipe / Incorrect.
+        } else {
+        }
+
+        //ToDo: make switch for every position in the Questions[] list. Then check for every question the swipe. Then add fitting feedback message.
     }
 }
 

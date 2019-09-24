@@ -1,7 +1,9 @@
 package com.example.jenny.swipequiz
 
 data class Question (
-    var question: String
+    var question: String,
+    var solution: Boolean,
+    var ID: Int
 ) {
     companion object {
         val QUESTIONS = arrayOf(
@@ -10,5 +12,19 @@ data class Question (
             "A Unit in Kotlin corresponds to a void in Java.",
             "In Kotlin 'when' replaces the 'switch' operator in Java."
             )
+
+        val SOLUTIONS = arrayOf(
+            false,
+            true,
+            true,
+            true
+        )
+
+        val IDS = arrayOf(
+            1,
+            2,
+            3,
+            4
+        )
     }
 }

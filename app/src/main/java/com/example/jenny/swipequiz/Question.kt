@@ -2,8 +2,7 @@ package com.example.jenny.swipequiz
 
 data class Question (
     var question: String,
-    var solution: Boolean,
-    var ID: Int
+    var solution: Boolean
 ) {
     companion object {
         val QUESTIONS = arrayOf(
@@ -18,13 +17,6 @@ data class Question (
             true,
             true,
             true
-        )
-
-        val IDS = arrayOf(
-            1,
-            2,
-            3,
-            4
         )
     }
 }

@@ -23,7 +23,6 @@ class QuestionAdapter(private val questions: List<Question>) : RecyclerView.Adap
             LayoutInflater.from(context).inflate(R.layout.item_quiz, parent, false)
 
         // See level 2 example for what to do when not using an extra activity.
-
         )
     }
 

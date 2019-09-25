@@ -3,7 +3,7 @@
     <string name="instruction_text">Quiz Instructions</string>
     <string name="instructionContent_text">Swipe left for true, swipe right for false.</string>
     <string name="instructionContent_text2">Click on the question for the answer.</string>
-    <string name="answer">Your answer is %s.</string>
+    <string name="answer">Your answer is %s</string>
     <string name="completed">This question has been answered.</string>
     <string name="quizInput_1">Here will be a quiz input.</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.example.jenny.swipequiz
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_quiz.*
+import kotlinx.android.synthetic.main.item_quiz.view.*
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -38,7 +40,7 @@ class MainActivity : AppCompatActivity() {
 
         // Populate the questions list.
         for (i in Question.QUESTIONS.indices) {
-            questions.add(Question(Question.QUESTIONS[i], Question.SOLUTIONS[i]))
+            questions.add(Question(Question.QUESTIONS[i], Question.SOLUTIONS[i], Question.IDS[i]))
         }
         // Notify that data has changed.
         questionAdapter.notifyDataSetChanged()
@@ -64,23 +66,40 @@ class MainActivity : AppCompatActivity() {
                     return false
                 }
 
-                // Callback triggered when a user swiped an item.
+                // Callback triggered when a user swiped an item to left.
                 override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                    // Pass the direction variable to function.\
-                    checkAnswer(intToBool(direction), viewHolder.layoutPosition)
+
+                    var position = viewHolder.adapterPosition
+
+                    // Pass the direction variable and position to function.
+                    checkAnswer(viewHolder, intToBool(direction), position)
                 }
             }
         return ItemTouchHelper(callback)
     }
 
     private fun intToBool(direction: Int): Boolean {
-        return direction >= 0
+        return direction == ItemTouchHelper.RIGHT
     }
 
-    private fun checkAnswer(answer: Boolean, question: Int) {
+    private fun checkAnswer(viewHolder: RecyclerView.ViewHolder, answer: Boolean, questionPos: Int) {
 
-        var correctText = "Correct! :)"
-        var incorrectText = "Incorrect... :("
+        var correctText = "correct!"
+        var incorrectText = "incorrect..."
+        var correctColour =  Color.parseColor("#02d998")
+        var incorrectColour = Color.parseColor("#db0240")
+
+        if (questionPos == Question.IDS[questionPos] && answer == Question.SOLUTIONS[questionPos]) {
+            // If user's answer does match the solution for the question.
+            Toast.makeText(this, getString(R.string.answer, correctText), Toast.LENGTH_SHORT).show()
+            viewHolder.itemView.setBackgroundColor(correctColour)
+            questionAdapter.notifyDataSetChanged()
+        } else {
+            // When it does not match.
+            Toast.makeText(this, getString(R.string.answer, incorrectText), Toast.LENGTH_SHORT).show()
+            viewHolder.itemView.setBackgroundColor(incorrectColour)
+            questionAdapter.notifyDataSetChanged()
+        }
     }
 }
 

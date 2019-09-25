@@ -1,9 +1,6 @@
 package com.example.jenny.swipequiz
 
-data class Question (
-    var question: String,
-    var solution: Boolean
-) {
+data class Question ( var question: String, var solution: Boolean, var id: Int) {
     companion object {
         val QUESTIONS = arrayOf(
             "A 'var' and 'val' are the same.",
@@ -18,5 +15,13 @@ data class Question (
             true,
             true
         )
+
+        val IDS = arrayOf(
+            0,
+            1,
+            2,
+            3
+        )
+
     }
 }
